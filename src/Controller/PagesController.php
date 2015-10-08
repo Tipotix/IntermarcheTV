@@ -39,6 +39,17 @@ class PagesController extends AppController
     {
         $path = func_get_args();
 
+
+        $p = $this->loadModel('produits');
+
+        $produits = $p->find('all');
+        $this->set(compact('produits'));
+
+
+
+
+
+
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
