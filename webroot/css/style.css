@@ -16,6 +16,15 @@ body{
 	margin-top: 113px;
 }
 
+.date {
+	text-decoration: underline;
+	font-style: italic;
+	font-size: 25px!important;
+	float: left;
+	text-decoration: none!important;
+	margin-top: 10px!important;
+}
+
 .bienvenue{
 	font-size: 449%;
 	font-family: 'Lato', sans-serif;
@@ -39,25 +48,31 @@ span{
 	color: #ED1C24;
 }
 
+#div_horloge{
+	font-size: 5em;
+	color: #ED1C24;
+	position: absolute;margin-top: 22px;
+}
+
 #jour3 .jour {
-    width: 150px;
-    height: 122px;
-    float: left;
-    position: relative;
-    background: #3B3B3B;
+	width: 150px;
+	height: 122px;
+	float: left;
+	position: relative;
+	background: #3B3B3B;
 }
 
 .aujourdhui {
-    height: 122px;
-    position: relative;
-    background: rgb(59, 59, 59) none repeat scroll 0% 0%;
-    border-bottom: solid 2px #ED1C24;
+	height: 122px;
+	position: relative;
+	background: rgb(59, 59, 59) none repeat scroll 0% 0%;
+	border-bottom: solid 2px #ED1C24;
 }
 .aujourdhui .date {
-    position: absolute;
-    left: 10px!important;
-    top: 3px!important;
-    font-size: 19px!important;
+	position: absolute;
+	left: 10px!important;
+	top: 3px!important;
+	font-size: 19px!important;
 }
 
 #infobulle {
@@ -88,6 +103,7 @@ span{
 	margin-left: -3px;
 	margin-top: 105px;
 	margin-bottom: -110px;
+	text-align: center;
 }
 
 .prix_fou{
