@@ -1,8 +1,5 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Nouveau produit'), ['action' => 'add'],['class' =>'btn-success']) ?></li>
-    </ul>
+<br><br><nav class="large-3 medium-4 columns" id="actions-sidebar">
+        <?= $this->Html->link(__('Nouveau produit'), ['action' => 'add'],['class' =>'btn-success']) ?>
 </nav>
 <div class="produits index large-9 medium-8 columns content">
     <h3><?= __('Produits') ?></h3>
@@ -24,20 +21,18 @@
                 <td><?= h($produit->prix) ?></td>
                 <td><?= h($produit->avantage) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $produit->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $produit->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $produit->id], ['confirm' => __('Are you sure you want to delete # {0}?', $produit->id)]) ?>
+                    <?= $this->Html->link(__('Regardé'), ['action' => 'view', $produit->id]) ?>
+                    <?= $this->Html->link(__('Édité'), ['action' => 'edit', $produit->id]) ?>
+                    <?= $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $produit->id], ['confirm' => __('Voulez vous vraiment supprimer ce produit # {0}?', $produit->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+    <div class="paginator"style="text-align: center">
+            <?= $this->Paginator->prev('< ' . __('Avant')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
+            <?= $this->Paginator->next(__('Après') . ' >') ?>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
