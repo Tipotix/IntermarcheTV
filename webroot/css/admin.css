@@ -115,3 +115,17 @@ fieldset legend {
     line-height: 2rem;
 }
 
+.btn-success{
+	padding: 10px;
+	outline: none;
+	background-color : red;
+	float: right;
+	text-decoration: none;
+	color: #fff;
+}
+
+.btn-success:hover{
+	background-color: #505050;
+	color: #fff;
+
+}
