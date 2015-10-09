@@ -26,7 +26,7 @@ $('.carousel').owlCarousel({
 
 		console.log(d.getHours());
 
-		if(0 == d.getHours() && 00 == d.getMinutes()){
+		if(00 == d.getHours() && 01 == d.getMinutes()){
 			console.log("Nouvelle journée!");
 			document.location.reload(true);
 		}

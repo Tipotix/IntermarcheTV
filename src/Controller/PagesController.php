@@ -37,6 +37,8 @@ class PagesController extends AppController
      */
     public function display()
     {
+        $this->viewBuilder()->layout(false);
+
         $path = func_get_args();
 
 
@@ -44,11 +46,6 @@ class PagesController extends AppController
 
         $produits = $p->find('all');
         $this->set(compact('produits'));
-
-
-
-
-
 
         $count = count($path);
         if (!$count) {
