@@ -1,4 +1,4 @@
-<br><br><nav class="large-3 medium-4 columns" id="actions-sidebar">
+<br><br><br><br><nav class="large-3 medium-4 columns" id="actions-sidebar">
         <?= $this->Html->link(__('Nouveau produit'), ['action' => 'add'],['class' =>'btn-success']) ?>
 </nav>
 <div class="produits index large-9 medium-8 columns content">
@@ -21,18 +21,26 @@
                 <td><?= h($produit->prix) ?></td>
                 <td><?= h($produit->avantage) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Regardé'), ['action' => 'view', $produit->id]) ?>
-                    <?= $this->Html->link(__('Édité'), ['action' => 'edit', $produit->id]) ?>
-                    <?= $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $produit->id], ['confirm' => __('Voulez vous vraiment supprimer ce produit # {0}?', $produit->id)]) ?>
+                    <?= $this->Html->link(__('Regardé'), ['action' => 'view', $produit->id], ['class' => 'btn-info']) ?>
+                    <?= $this->Html->link(__('Édité'), ['action' => 'edit', $produit->id], ['class' => 'btn-warning']) ?>
+                    <?= $this->Form->postLink(__('Supprimé'), ['action' => 'delete', $produit->id], [
+                    'class' => 'btn-danger', 'confirm' => __('Voulez vous vraiment supprimer ce produit # {0}?', $produit->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <div class="paginator"style="text-align: center">
-            <?= $this->Paginator->prev('< ' . __('Avant')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('Après') . ' >') ?>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+    <div class="pagination-container">
+    <ul class="pagination">
+        <?php
+            if ($this->Paginator->hasPrev()){
+                echo $this->Paginator->prev('«');
+            }
+            echo $this->Paginator->numbers(['modulus' => 5]);
+            if ($this->Paginator->hasNext()){
+               echo $this->Paginator->next('»');
+            }
+        ?>
+    </ul>
+</div>
 </div>

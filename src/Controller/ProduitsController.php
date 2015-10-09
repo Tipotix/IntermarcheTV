@@ -10,7 +10,9 @@ use App\Controller\AppController;
  */
 class ProduitsController extends AppController
 {
-
+    public $paginate = [
+        'limit' => 10
+    ];
     /**
      * Index method
      *
@@ -18,6 +20,9 @@ class ProduitsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'maxLimit' =>  '10'
+        ];
         $this->set('produits', $this->paginate($this->Produits));
         $this->set('_serialize', ['produits']);
     }

@@ -1,6 +1,8 @@
 .menu{
 	background-color: rgb(237,28,36);
 	color: #fff;
+	position: fixed;
+	width: 100%;
 
 	font-weight: 100;
 	list-style-type : none;
@@ -9,6 +11,8 @@
 body{
 	font-family: 'Lato', sans-serif!important;
 }
+
+
 
 .menu h1{
 	font-weight: 300;
@@ -120,7 +124,7 @@ fieldset legend {
 }
 
 .btn-success{
-	padding: 10px;
+	padding: 5px;
 	outline: none;
 	background-color : #71B93F;
 	float: right;
@@ -132,4 +136,111 @@ fieldset legend {
 	background-color: #505050;
 	color: #fff;
 
+}
+
+.btn-info{
+	padding: 5px;
+	outline: none;
+	background-color : #3FA8B9;
+	text-decoration: none;
+	color: #fff;
+}
+
+.btn-info:hover{
+	background-color: #505050;
+	color: #fff;
+
+}
+
+.btn-warning{
+	padding: 5px;
+	outline: none;
+	background-color : #EF9725;
+	text-decoration: none;
+	color: #fff;
+}
+
+.btn-warning:hover{
+	background-color: #505050;
+	color: #fff;
+
+}
+
+.btn-danger{
+	padding: 5px;
+	outline: none;
+	background-color : #E31F1F;
+	text-decoration: none;
+	color: #fff;
+}
+
+.btn-danger:hover{
+	background-color: #505050;
+	color: #fff;
+
+}
+
+
+
+
+
+
+.pagination-container {
+	margin: 100px auto;
+	text-align: center;
+}
+.pagination {
+	position: relative;
+	list-style: none;
+}
+.pagination li{
+	display: inline-block;
+}
+.pagination a {
+	position: relative;
+	display: inline-block;
+	color: red;
+	text-decoration: none;
+	font-size: 1.2em;
+	padding: 8px 16px 10px;
+}
+.pagination a:before {
+	z-index: -1;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	content: "";
+	top: 0;
+	left: 0;
+	background-color: #ED1C24;
+	border-radius: 24px;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.pagination a:hover,
+.pagination a .pagination-active {
+	color: #fff;
+}
+.pagination a:hover:before,
+.pagination a .pagination-active:before {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+.pagination .pagination-active {
+	color: #fff;
+}
+.pagination .pagination-active:before {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+.pagination-newer {
+	margin-right: 50px;
+}
+.pagination-older {
+	margin-left: 50px;
 }
