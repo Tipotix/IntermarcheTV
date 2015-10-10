@@ -39,6 +39,7 @@ $('.carousel').owlCarousel({
  */
 window.onload=function() {
 	horloge('div_horloge');
+	date('div_date');
 };
 function horloge(el) {
 	if(typeof el=="string") { el = document.getElementById(el); }

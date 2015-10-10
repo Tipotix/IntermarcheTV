@@ -32,7 +32,7 @@
 
                 Nous sommes le
                 <span style="margin-left: 51px;">
-                    <div id="div_horloge_jour"></div>
+                    <div id="div_date"></div>
                 </span>
             </p>
 

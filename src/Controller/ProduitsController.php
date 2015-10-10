@@ -23,8 +23,15 @@ class ProduitsController extends AppController
         $this->paginate = [
             'maxLimit' =>  '10'
         ];
+
+ $this->paginate = [
+            'maxLimit' =>  '10'
+        ];
         $this->set('produits', $this->paginate($this->Produits));
         $this->set('_serialize', ['produits']);
+        /*
+
+         */
     }
 
     /**
