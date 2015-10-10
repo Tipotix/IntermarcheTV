@@ -52,3 +52,15 @@ function horloge(el) {
 	actualiser();
 	setInterval(actualiser,1000);
 }
+
+function date(el){
+	function actualiser(){
+		var date = new Date();
+		var str = date.getDay();
+		el.innerHTML = str;
+	}
+
+	actualiser();
+	setInterval(actualiser,1000);
+
+}

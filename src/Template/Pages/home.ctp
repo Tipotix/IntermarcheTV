@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Message bienvenue -->
-    <div class="container">
+    <div class="container" style="margin-top: 170px">
 
         <div class="grid-8" style="margin-top: 60px;">
             <div class="container">
@@ -32,10 +32,7 @@
 
                 Nous sommes le
                 <span style="margin-left: 51px;">
-                    <?php
-                    setlocale (LC_TIME, 'fr_FR.utf8','fra');
-                    echo(strftime("%A %d %B"));
-                    ?>
+                    <div id="div_horloge_jour"></div>
                 </span>
             </p>
 
@@ -53,7 +50,7 @@
             <p style="font-size: 22px; margin-left: 60px;">Bonne fête à <span><script language="Javascript" src="http://www.webmasteroo.com/saint/saint.php?s=1443865863&f=2"></script></span></p>
         </div>
     </div>
-
+<!--
     <div class="produits container">
         <h1 class="promo-h1">Les <span>promotions</span></h1>
         <div class="carousel">
@@ -212,6 +209,9 @@
             </div>
         </div>
     </div>
+
+    -->
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/g/jquery.owlcarousel@1.31(owl.carousel.min.js+owl.carousel.js)"></script>
