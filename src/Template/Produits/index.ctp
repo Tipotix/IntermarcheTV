@@ -1,5 +1,5 @@
 <br><br><br><br><nav class="large-3 medium-4 columns" id="actions-sidebar">
-        <?= $this->Html->link(__('Nouveau produit'), ['action' => 'add'],['class' =>'btn-success']) ?>
+        <?= $this->Html->link(__('Nouveau produit'), ['action' => 'add'],['class' =>'btn-success right']) ?>
 </nav>
 <div class="produits index large-9 medium-8 columns content">
     <h3><?= __('Produits') ?></h3>

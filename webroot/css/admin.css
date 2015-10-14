@@ -1,3 +1,7 @@
+
+.right{
+}
+
 .menu{
 	background-color: rgb(237,28,36);
 	color: #fff;
@@ -124,10 +128,11 @@ fieldset legend {
 }
 
 .btn-success{
+	border:0;
+	cursor: pointer;
 	padding: 5px;
 	outline: none;
 	background-color : #71B93F;
-	float: right;
 	text-decoration: none;
 	color: #fff;
 }
@@ -139,6 +144,8 @@ fieldset legend {
 }
 
 .btn-info{
+	border:0;
+	cursor: pointer;
 	padding: 5px;
 	outline: none;
 	background-color : #3FA8B9;
@@ -153,6 +160,8 @@ fieldset legend {
 }
 
 .btn-warning{
+	border:0;
+	cursor: pointer;
 	padding: 5px;
 	outline: none;
 	background-color : #EF9725;
@@ -167,6 +176,8 @@ fieldset legend {
 }
 
 .btn-danger{
+	border:0;
+	cursor: pointer;
 	padding: 5px;
 	outline: none;
 	background-color : #E31F1F;
