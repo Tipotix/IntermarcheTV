@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Message bienvenue -->
-    <div class="container" style="margin-top: 170px">
+    <div class="container"/><!--style="margin-top: 170px"> -->
 
         <div class="grid-8" style="margin-top: 60px;">
             <div class="container">
@@ -30,10 +30,7 @@
                 </script>
                 <div id="div_horloge"></div>
 
-                Nous sommes le
-                <span style="margin-left: 51px;">
-                    <div id="div_date"></div>
-                </span>
+                <?= date('h:i:s');?>
             </p>
 
             <div class="meteo" id="widget_acff57812838f6e88ff184288dbb36a9">
@@ -50,14 +47,31 @@
             <p style="font-size: 22px; margin-left: 60px;">Bonne fête à <span><script language="Javascript" src="http://www.webmasteroo.com/saint/saint.php?s=1443865863&f=2"></script></span></p>
         </div>
     </div>
-    <!--
     <div class="produits container">
         <h1 class="promo-h1">Les <span>promotions</span></h1>
         <div class="carousel">
+
+            <?php foreach($produits as $produit): ?>
+             <div class="item">
+                <div class="grid-5">
+                    <img src="https://intermarche.webalogues.fr/uploads/catalog/1485/sheets/middles/514337_599507.jpg" style="width: 99%;" alt="">
+                </div>
+                <div class="grid-7">
+                <h1 class="info"><?= $produit->name; ?></h1>
+                </div>
+
+
+                <p>
+                    <h2 class="prix_fou">
+                        Prix fou!
+                    </h2>
+                    <p style="text-align: center; font-size: 29px;">2€19 <span>&gt;</span> 2€19</p>
+                    <p style="text-align: center; font-size: 3em; display: block;"><span >70%</span> <g style=" display: block; font-size: 17px;text-align: center; margin-left: 10em;">en avantage carte</g></p>
+                </p>
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
-
-    -->
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
