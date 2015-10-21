@@ -58,15 +58,26 @@ class ProduitsController extends AppController
     public function add()
     {
         $produit = $this->Produits->newEntity();
+
         if ($this->request->is('post')) {
+            include 'function.php';
             $produit = $this->Produits->patchEntity($produit, $this->request->data);
-            if ($this->Produits->save($produit)) {
-                $this->Flash->success(__('The produit has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The produit could not be saved. Please, try again.'));
-            }
+
+            $produit->prix_base = $this->request->data(['prix_base']);
+            $produit->prix_fin = $this->request->data(['prix_fin']);
+
+            $Pourcent =  Pourcentage($produit->prix_base, $produit->prix_fin);
+
+            $produit->promo = round($Pourcent);
         }
+
+        if ($this->Produits->save($produit)) {
+            $this->Flash->success(__('Votre ticket est bien save'));
+            return $this->redirect(['action' => 'index']);
+        } else {
+            $this->Flash->error(__('Il y a eu un problème'));
+        }
+
         $this->set(compact('produit'));
         $this->set('_serialize', ['produit']);
     }

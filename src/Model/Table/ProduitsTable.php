@@ -51,8 +51,12 @@ class ProduitsTable extends Table
             ->notEmpty('img');
 
         $validator
-            ->requirePresence('prix', 'create')
-            ->notEmpty('prix');
+            ->requirePresence('prix_base', 'create')
+            ->notEmpty('prix_base');
+
+        $validator
+            ->requirePresence('prix_fin', 'create')
+            ->notEmpty('prix_fin');
 
         $validator
             ->requirePresence('avantage', 'create')
