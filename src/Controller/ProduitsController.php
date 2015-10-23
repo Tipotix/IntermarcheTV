@@ -68,7 +68,7 @@ class ProduitsController extends AppController
 
             $Pourcent =  Pourcentage($produit->prix_base, $produit->prix_fin);
 
-            $produit->promo = round($Pourcent);
+            $produit->promo = $Pourcent;
         }
 
         if ($this->Produits->save($produit)) {
