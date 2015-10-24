@@ -37,26 +37,53 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function initialize()
+     public function initialize()
     {
         parent::initialize();
-
-        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authError' => 'Vous devez être connecter pour allez sur cette page.',
+            'loginRedirect' => [
+                'controller' => 'users',
+                'action' => 'index',
+                'prefix' => false
+            ],
+            'unauthorizeRedirect' => [
+                'controller' => 'pages',
+                'action' => 'index',
+                'prefix' => false
+            ],
+            'loginAction' => [
+                'controller' => 'users',
+                'action' => 'login',
+                'prefix' => false
+            ],
+            'logoutRedirect' => [
+                'controller' => 'pages',
+                'action' => 'index'
+            ]
+        ]);
+    }
+    public function beforeFilter(Event $event)
+    {
+        // Si il est pas connecté, une erreur arrive.
+        $this->Auth->authError = "Vous devez vous connecter pour accéder à cette page.";
+        // J'autorise aux utilisateurs non inscrit à accédez à c'est pages.
+        $this->Auth->allow([
+            'index',
+            'view',
+            'display'
+        ]);
+    }
+    public function isAuthorized($user)
+    {
+        // Admin peuvent accéder à chaque action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+
+        // Par défaut refuser
+        return false;
     }
 
-    /**
-     * Before render callback.
-     *
-     * @param \Cake\Event\Event $event The beforeRender event.
-     * @return void
-     */
-    public function beforeRender(Event $event)
-    {
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-            in_array($this->response->type(), ['application/json', 'application/xml'])
-        ) {
-            $this->set('_serialize', true);
-        }
-    }
 }

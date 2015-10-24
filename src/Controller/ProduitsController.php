@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Event\Event;
 /**
  * Produits Controller
  *
@@ -10,8 +10,16 @@ use App\Controller\AppController;
  */
 class ProduitsController extends AppController
 {
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['index']);
+    }
+
+
     public $paginate = [
-        'limit' => 10
+    'limit' => 10
     ];
     /**
      * Index method
@@ -21,11 +29,11 @@ class ProduitsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'maxLimit' =>  '10'
+        'maxLimit' =>  '10'
         ];
 
- $this->paginate = [
-            'maxLimit' =>  '10'
+        $this->paginate = [
+        'maxLimit' =>  '10'
         ];
         $this->set('produits', $this->paginate($this->Produits));
         $this->set('_serialize', ['produits']);
@@ -45,7 +53,7 @@ class ProduitsController extends AppController
     {
         $produit = $this->Produits->get($id, [
             'contain' => []
-        ]);
+            ]);
         $this->set('produit', $produit);
         $this->set('_serialize', ['produit']);
     }
@@ -57,29 +65,37 @@ class ProduitsController extends AppController
      */
     public function add()
     {
-        $produit = $this->Produits->newEntity();
 
-        if ($this->request->is('post')) {
-            include 'function.php';
-            $produit = $this->Produits->patchEntity($produit, $this->request->data);
+        if ($this->request->session()->read('Auth.User.role')) {
 
-            $produit->prix_base = $this->request->data(['prix_base']);
-            $produit->prix_fin = $this->request->data(['prix_fin']);
+            $produit = $this->Produits->newEntity();
 
-            $Pourcent =  Pourcentage($produit->prix_base, $produit->prix_fin);
+            if ($this->request->is('post')) {
+                include 'function.php';
+                $produit = $this->Produits->patchEntity($produit, $this->request->data);
 
-            $produit->promo = $Pourcent;
+                $produit->prix_base = $this->request->data(['prix_base']);
+                $produit->prix_fin = $this->request->data(['prix_fin']);
+
+                $Pourcent =  Pourcentage($produit->prix_base, $produit->prix_fin);
+
+                $produit->promo = $Pourcent;
+            }
+
+            if ($this->Produits->save($produit)) {
+                $this->Flash->success(__('Votre ticket est bien save'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('Il y a eu un problème'));
+            }
+
+            $this->set(compact('produit'));
+            $this->set('_serialize', ['produit']);
+        }else{
+            echo 'ERROR!!! <a href="http://127.0.0.1/cakephp/users/login"> Se connecter</a>';
+            die();
         }
 
-        if ($this->Produits->save($produit)) {
-            $this->Flash->success(__('Votre ticket est bien save'));
-            return $this->redirect(['action' => 'index']);
-        } else {
-            $this->Flash->error(__('Il y a eu un problème'));
-        }
-
-        $this->set(compact('produit'));
-        $this->set('_serialize', ['produit']);
     }
 
     /**
@@ -91,20 +107,25 @@ class ProduitsController extends AppController
      */
     public function edit($id = null)
     {
-        $produit = $this->Produits->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $produit = $this->Produits->patchEntity($produit, $this->request->data);
-            if ($this->Produits->save($produit)) {
-                $this->Flash->success(__('The produit has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The produit could not be saved. Please, try again.'));
+        if ($this->request->session()->read('Auth.User.role') == 'admin') {
+            $produit = $this->Produits->get($id, [
+                'contain' => []
+                ]);
+            if ($this->request->is(['patch', 'post', 'put'])) {
+                $produit = $this->Produits->patchEntity($produit, $this->request->data);
+                if ($this->Produits->save($produit)) {
+                    $this->Flash->success(__('The produit has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('The produit could not be saved. Please, try again.'));
+                }
             }
+            $this->set(compact('produit'));
+            $this->set('_serialize', ['produit']);
+        }else{
+            echo 'ERROR!!! <a href="http://127.0.0.1/cakephp/users/login"> Se connecter</a>';
+            die();
         }
-        $this->set(compact('produit'));
-        $this->set('_serialize', ['produit']);
     }
 
     /**

@@ -23,7 +23,7 @@
 				<div class="grid-10 menu-a">
 					<li><a href="http://127.0.0.1/cakephp/">Accueil</a></li>
 					<li><a href="http://127.0.0.1/cakephp/produits/">Produits</a></li>
-					<li><a href="#">Administration</a></li>
+					<li><a href="http://127.0.0.1/cakephp/users/">Espace membre</a></li>
 				</div>
 			</div>
 		</div>

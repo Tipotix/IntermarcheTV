@@ -1,6 +1,9 @@
-<br><br><br><br><nav class="large-3 medium-4 columns" id="actions-sidebar">
-<?= $this->Html->link(__('Nouveau produit'), ['action' => 'add'],['class' =>'btn-success right']) ?>
-</nav>
+<br>
+<br>
+<br>
+<br>
+<a class="btn-success" href="http://127.0.0.1/cakephp/users/login"> Se connecter</a>
+<a class="btn-danger" href="http://127.0.0.1/cakephp/users/logout"> Se déconnecter</a>
 <div class="produits index large-9 medium-8 columns content">
     <h3><?= __('Utilisateurs') ?></h3>
 
@@ -10,7 +13,7 @@
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('username') ?></th>
-                <th><?= $this->Paginator->sort('password') ?></th>
+                <th><?= $this->Paginator->sort('role') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -19,7 +22,7 @@
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= $user->username ?></td>
-                <td><?= $user->password ?></td>
+                <td><?= $user->role ?></td>
                 <td class="actions">
                         <div class="container">
                             <div class="grid-4">

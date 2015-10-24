@@ -8,6 +8,10 @@
         <?php
         echo $this->Form->input('username', ['class' => 'form', 'label' => false]);
         ?>
+        <span>Role</span>
+        <?= $this->Form->input('role', [
+            'options' => ['admin' => 'Admin', 'equipe' => 'Équipe'], 'class' => 'form', 'label' => false
+        ]) ?>
         <span>Votre mot de passe</span>
         <?php
         echo $this->Form->input('password', ['class' => 'form', 'label' => false]);

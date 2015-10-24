@@ -69,7 +69,7 @@
                 <h2 class="prix_fou">
                     Prix fou!
                 </h2>
-                <p style="text-align: center; font-size: 29px;"><?= $produit->prix_base; ?> <span>&gt;</span> <?= $produit->prix_fin; ?></p>
+                <p style="text-align: center; font-size: 29px;"><?= $produit->prix_base; ?>€ <span>&gt;</span> <?= $produit->prix_fin; ?>€</p>
                 <p style="text-align: center; font-size: 3em; display: block;">
                     <span>
                         <?= $produit->promo . "%"?>
