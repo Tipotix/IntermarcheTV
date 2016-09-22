@@ -1,7 +1,5 @@
 # TV-Intermarche
 
-*Réalisation de la version 2 en cours.*
-
 ### Description
 Dans le magasin il y a deux télévisions centrales reliées par un ordinateur qui transmet une page web. Après avoir vu ça j'ai voulu refaire les pages web afin qu'il y ait un meilleur résultat.
 
